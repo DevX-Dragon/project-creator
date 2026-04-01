@@ -1,0 +1,6 @@
+# DevX-Dragon Project Template
+/cart/
+__pycache__/
+*.bak
+*.kicad_pcb-bak
+.DS_Store
