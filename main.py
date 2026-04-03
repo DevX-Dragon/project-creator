@@ -87,7 +87,8 @@ def create_project():
 
 # --- UI (v3.3) ---
 root = tk.Tk()
-root.title("Project Architect v3.3")
+root.iconbitmap("icon.ico")
+root.title("Project Creator v3.3")
 root.geometry("400x440")
 root.configure(padx=25, pady=25)
 
