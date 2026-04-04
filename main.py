@@ -87,7 +87,10 @@ def create_project():
 
 # --- UI (v3.3) ---
 root = tk.Tk()
-root.iconbitmap("icon.ico")
+try:
+    root.iconbitmap("icon.ico")
+except:
+    pass
 root.title("Project Creator v3.3")
 root.geometry("400x440")
 root.configure(padx=25, pady=25)
