@@ -4,3 +4,5 @@ __pycache__/
 *.bak
 *.kicad_pcb-bak
 .DS_Store
+/dist/
+/venv/

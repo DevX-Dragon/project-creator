@@ -14,6 +14,7 @@ When you are going to be switching between KiCad, Firmware, and Web Development 
 - **Git Automation**: It handles the git init, creates the main branch, sets a remote orgin (orgin or an upstream based on user input), and performs your initial commit and push in one click.
 
 ## Security Concerns
-This project does not have access to any of your git credentials. This script only runs the git commands for you via the terminal.
+- The .exe file is flagged my Microsoft Anti-virus. You can either use the python version or add the exe as a exclusion.
+- This project does not have access to any of your git credentials. This script only runs the git commands for you via the terminal.
 
-###### Fully built by **@DevX-Dragon**. A 14 year old developer from Sri Lanka 🇱🇰
+###### Fully built by **@DevX-Dragon**. A 14 year old developer from Sri Lanka 🇱🇰 
