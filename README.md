@@ -12,3 +12,8 @@ When you are going to be switching between KiCad, Firmware, and Web Development 
 - **Base Files**: Creates the basic `.kicad_pro` and `.kicad_sch` for KiCAD and basic `index.html`,`script.js` and `style.css` for web development.
 
 - **Git Automation**: It handles the git init, creates the main branch, sets a remote orgin (orgin or an upstream based on user input), and performs your initial commit and push in one click.
+
+## Security Concerns
+This project does not have access to any of your git credentials. This script only runs the git commands for you via the terminal.
+
+###### Fully built by **@DevX-Dragon**. A 14 year old developer from Sri Lanka 🇱🇰
