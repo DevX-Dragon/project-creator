@@ -1,32 +1,14 @@
-### Proper Doucmentation will be released soon
+# Project Creator
+I built Project Architect because I was tired of manually creating the same folder structures, initializing git, and setting up virtual environments every time I started a new engineering project. This tool automates the "boring stuff" so you can get straight to the actual design and code.
 
-# 🐉 Project Architect
+## Why?
+When you are going to be switching between KiCad, Firmware, and Web Development having a proper structured folder is a pain. This app ensures that each and every project is consistent numbered hierarchy without you worrying about it.
 
-A Python-based automation tool for developers. It generates project folders, configures Git, and pushes to GitHub in one click.
+## What it does?
+> **Project Numbering**: It looks at your current directory and automatically picks the next available number.
 
-## 🚀 Key Features
-- **Auto-Increment**: Detects existing project numbers and increments them.
-- **Module Selection**: Toggle PCB, Firmware, and CAD folders.
-- **Modern Git**: Uses `main` branch instead of `master`.
-- **Remote Integration**: Supports both `origin` and `upstream` naming conventions.
-- **Instant Push**: Automatically pushes the initial `.gitignore` so you can do `git push` immediately.
+> **Selectable Folder Templates**: Give options to choose what folders have to be created according to user input.
 
-## 🛠️ Requirements
-- **Python 3.x**
-- **Git** (Must be in your System PATH)
+> **Base Files**: Creates the basic `.kicad_pro` and `.kicad_sch` for KiCAD and basic `index.html`,`script.js` and `style.css` for web development.
 
-## ⚠️ Important Note
-For the **Initialize & Push** feature to work, the GitHub repository you link must be **completely empty** (no README or License created on GitHub).
-
-## 📂 Project Structure
-Each project is generated with a standardized, professional layout:
-```text
-[no].[project name]/
-├── [project name] - kicad/   # PCB Design
-├── firmware/                 # Source Code
-├── 3D/                       # Enclosures & Mechanicals
-├── images/                   # Documentation & Renders
-├── cart/                     # BOM & Parts (Git-Ignored)
-└── .gitignore                # Pre-configured for hardware/software
-
-###### This is mainly made for Hack Club Students who make hardware projects
+> **Git Automation**: It handles the git init, creates the main branch, sets a remote orgin (orgin or an upstream based on user input), and performs your initial commit and push in one click.

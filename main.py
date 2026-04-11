@@ -5,7 +5,6 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 import base64
 
-
 def get_next_project_number():
     max_num = 0
     try:
