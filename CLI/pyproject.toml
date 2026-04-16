@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prj-creator"
+version = "1.0.0"
+description = "Industrial project initializer CLI for hardware/software."
+readme = "README.md"
+authors = [{ name="DevX-Dragon" }]
+license = { text="MIT" }
+requires-python = ">=3.7"
+
+[project.scripts]
+project-creator = "main:run_wizard"
