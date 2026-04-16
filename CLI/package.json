@@ -1,6 +1,6 @@
 {
   "name": "prj-creator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Industrial project initializer CLI for hardware/software.",
   "main": "main.py",
   "bin": {

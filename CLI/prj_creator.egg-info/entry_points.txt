@@ -1,0 +1,2 @@
+[console_scripts]
+project-creator = main:run_wizard

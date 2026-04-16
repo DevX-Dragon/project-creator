@@ -4,10 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prj-creator"
-version = "1.0.0"
-description = "Industrial project initializer CLI for hardware/software."
+version = "1.0.1"
+description = "Industrial project initializer for hardware and software."
 readme = "README.md"
-authors = [{ name="DevX-Dragon" }]
+authors = [
+  { name="DevX-Dragon", email="devx-dragon@users.noreply.github.com" },
+]
 license = { text="MIT" }
 requires-python = ">=3.7"
 

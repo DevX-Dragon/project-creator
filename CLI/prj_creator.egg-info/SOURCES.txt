@@ -1,0 +1,8 @@
+README.md
+main.py
+pyproject.toml
+prj_creator.egg-info/PKG-INFO
+prj_creator.egg-info/SOURCES.txt
+prj_creator.egg-info/dependency_links.txt
+prj_creator.egg-info/entry_points.txt
+prj_creator.egg-info/top_level.txt

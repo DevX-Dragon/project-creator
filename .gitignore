@@ -1,4 +1,3 @@
-# DevX-Dragon Project Template
 /cart/
 __pycache__/
 *.bak
@@ -7,3 +6,5 @@ __pycache__/
 /dist/
 /venv/
 /releases/
+/dist/
+/build/

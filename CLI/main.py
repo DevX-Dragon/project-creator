@@ -2,7 +2,6 @@
 import os
 import re
 import subprocess
-import platform
 import time
 import sys
 
@@ -20,17 +19,6 @@ def get_next_project_number():
     except Exception: pass
     return max_num + 1
 
-def progress_bar(task_name, duration=3):
-    print(f"   [*] {task_name}")
-    bar_width = 40
-    for i in range(bar_width + 1):
-        percent = int((i / bar_width) * 100)
-        bar = "█" * i + "-" * (bar_width - i)
-        sys.stdout.write(f"\r       [{bar}] {percent}%")
-        sys.stdout.flush()
-        time.sleep(duration / bar_width)
-    print("\n")
-
 def run_wizard():
     print(r"""
     ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗
@@ -38,9 +26,16 @@ def run_wizard():
     ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   
     ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   
     ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   
-    ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝
+    ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   
+                                                              
+     ██████╗██████╗ ███████╗ █████╗ ████████╗ ██████╗ ██████╗ 
+    ██╔════╝██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗
+    ██║     ██████╔╝█████╗  ███████║   ██║   ██║   ██║██████╔╝
+    ██║     ██╔══██╗██╔══╝  ██╔══██║   ██║   ██║   ██║██╔══██╗
+    ╚██████╗██║  ██║███████╗██║  ██║   ██║   ╚██████╔╝██║  ██║
+     ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
     
-    Made by @devx-dragon | CLI v1.0
+    [ PRJ-CREATOR ] v1.0.1 | @devx-dragon
     ----------------------------------------------------------
     """)
 
@@ -48,7 +43,7 @@ def run_wizard():
         name = input("1. Project Name: ").strip().replace(" ", "-")
         if not name: return
 
-        print("\n2. Modules (e.g., --web --pcb --venv --cart)")
+        print("\n2. Modules (e.g., --web --hardware --venv --firmware --req)")
         selection = input("   Selection: ").lower()
 
         print("\n3. Select License")
@@ -56,12 +51,9 @@ def run_wizard():
         lic_choice = input("   Choice: ")
         
         repo = input("\n4. Git URL (optional): ").strip()
-        set_upstream = "n"
-        if repo:
-            set_upstream = input("   Set as upstream? (y/n): ").lower()
         
         next_num = get_next_project_number()
-        root_folder = f"{next_num}.{name}"
+        root_folder = f"{next_num:02d}.{name}"
         root_path = os.path.abspath(root_folder)
         
         print(f"\n[*] Initializing {root_folder}...")
@@ -71,52 +63,60 @@ def run_wizard():
         # License
         if lic_choice == "1":
             with open(os.path.join(root_path, "LICENSE"), "w") as f:
-                f.write(f"MIT License\n\nCopyright (c) 2026 DevX-Dragon")
-        elif lic_choice == "2":
-            with open(os.path.join(root_path, "LICENSE"), "w") as f:
-                f.write("GNU GENERAL PUBLIC LICENSE Version 3...")
+                f.write("MIT License\n\nCopyright (c) 2026 DevX-Dragon")
+        
+        # Firmware Logic
+        if "--firmware" in selection:
+            fw_path = os.path.join(root_path, "firmware")
+            os.makedirs(fw_path, exist_ok=True)
+            with open(os.path.join(fw_path, f"{name}.ino"), "w") as f:
+                f.write(f"// {name} Firmware\nvoid setup() {{\n\n}}\n\nvoid loop() {{\n\n}}")
+            print("   [+] Firmware directory created")
 
-        # README
-        with open(os.path.join(root_path, "README.md"), "w") as f:
-            f.write(f"# {name}\n\nInitialized via DevX CLI.")
-
-        # Modules
-        if "--pcb" in selection:
-            k_path = os.path.join(root_path, f"{name}-kicad")
-            os.makedirs(k_path, exist_ok=True)
-            with open(os.path.join(k_path, f"{name}.kicad_pro"), "w") as f: f.write('{"meta": {"version": 1}}')
-            with open(os.path.join(k_path, f"{name}.kicad_sch"), "w") as f:
-                f.write(f'(kicad_sch (version 20211123) (generator eeschema)\n(uuid "{next_num}")\n(paper "A4"))')
-            print("   [+] KiCad project created")
-
-        if "--venv" in selection:
-            progress_bar("Creating Virtual Environment")
-            subprocess.run(["python", "-m", "venv", "venv"], cwd=root_path, capture_output=True)
+        # Requirements Logic
+        if "--req" in selection:
             with open(os.path.join(root_path, "requirements.txt"), "w") as f:
                 f.write("# Project dependencies\n")
+            print("   [+] requirements.txt initialized")
 
-        with open(os.path.join(root_path, ".gitignore"), "w") as f:
-            f.write("/cart/\n__pycache__/\n*.bak\nvenv/\n")
+        # Hardware Logic
+        if "--hardware" in selection:
+            hw_path = os.path.join(root_path, "hardware")
+            os.makedirs(hw_path, exist_ok=True)
+            print("   [+] Hardware directory created")
 
-        # Git
-        if repo:
-            print("   [*] Pushing git...")
-            subprocess.run(["git", "init"], cwd=root_path, capture_output=True)
-            subprocess.run(["git", "add", "."], cwd=root_path, capture_output=True)
-            subprocess.run(["git", "commit", "-m", "Initial commit"], cwd=root_path, capture_output=True)
-            subprocess.run(["git", "branch", "-M", "main"], cwd=root_path, capture_output=True)
+        # Web Logic
+        if "--web" in selection:
+            web_path = os.path.join(root_path, "web")
+            os.makedirs(web_path, exist_ok=True)
             
-            remote_name = "upstream" if set_upstream == "y" else "origin"
-            subprocess.run(["git", "remote", "add", remote_name, repo], cwd=root_path, capture_output=True)
-            subprocess.run(["git", "push", "-u", remote_name, "main"], cwd=root_path, capture_output=True)
-            print(f"   [+] Synced to {remote_name}")
+            # HTML
+            with open(os.path.join(web_path, "index.html"), "w") as f:
+                f.write(f"<!DOCTYPE html>\n<html>\n<head>\n    <title>{name}</title>\n    <link rel='stylesheet' href='style.css'>\n</head>\n<body>\n    <h1>{name}</h1>\n    <script src='script.js'></script>\n</body>\n</html>")
+            
+            # CSS
+            with open(os.path.join(web_path, "style.css"), "w") as f:
+                f.write("body {\n    background: #000;\n    color: #fff;\n    font-family: monospace;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n}")
+            
+            # JS
+            with open(os.path.join(web_path, "script.js"), "w") as f:
+                f.write(f"console.log('{name} initialized.');")
+            
+            print("   [+] Web assets created (HTML/CSS/JS)")
 
-        print(f"\n[!] Success. Project ready at {root_folder}")
+        # Virtual Env Logic
+        if "--venv" in selection:
+            subprocess.run([sys.executable, "-m", "venv", os.path.join(root_path, "venv")], capture_output=True)
+            print("   [+] Virtual environment initialized")
+
+        # Git Logic
+        if repo:
+            subprocess.run(["git", "init"], cwd=root_path, capture_output=True)
+            subprocess.run(["git", "remote", "add", "origin", repo], cwd=root_path, capture_output=True)
+            print(f"   [+] Remote 'origin' set to {repo}")
+
+        print(f"\n[!] Success. Workspace ready in {root_folder}")
         
-        if platform.system() == "Windows": os.startfile(root_path)
-        elif platform.system() == "Darwin": subprocess.run(["open", root_path])
-        else: subprocess.run(["xdg-open", root_path])
-
     except Exception as e:
         print(f"\n[X] Error: {e}")
     input("\nPress Enter to exit...")
