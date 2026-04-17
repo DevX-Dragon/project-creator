@@ -3,6 +3,7 @@ Name: prj-creator
 Version: 2.0.0
 Summary: A CLI tool for rapid project scaffolding
 Author: DevX-Dragon
+Project-URL: Homepage, https://github.com/DevX-Dragon/project-creator
 Description-Content-Type: text/markdown
 
 # Project Creator CLI
