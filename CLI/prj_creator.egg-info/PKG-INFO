@@ -1,10 +1,8 @@
 Metadata-Version: 2.4
 Name: prj-creator
-Version: 1.0.2
-Summary: Industrial project initializer for hardware and software.
-Author-email: DevX-Dragon <devx-dragon@users.noreply.github.com>
-License: MIT
-Requires-Python: >=3.7
+Version: 2.0.0
+Summary: A CLI tool for rapid project scaffolding
+Author: DevX-Dragon
 Description-Content-Type: text/markdown
 
 # Project Creator CLI

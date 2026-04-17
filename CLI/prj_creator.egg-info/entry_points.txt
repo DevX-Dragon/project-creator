@@ -1,2 +1,2 @@
 [console_scripts]
-project-creator = main:run_wizard
+prj-creator = prj_creator.main:run_wizard

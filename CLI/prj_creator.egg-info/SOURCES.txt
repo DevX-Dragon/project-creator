@@ -1,6 +1,7 @@
 README.md
-main.py
 pyproject.toml
+prj_creator/__init__.py
+prj_creator/main.py
 prj_creator.egg-info/PKG-INFO
 prj_creator.egg-info/SOURCES.txt
 prj_creator.egg-info/dependency_links.txt
