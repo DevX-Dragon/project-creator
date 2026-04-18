@@ -1,28 +1,30 @@
-name: Upload CLI Build to PyPI
+name: Upload Release Assets to PyPI
 
 on:
   release:
-    types: [published, edited]
+    types: [published]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.x'
+      - uses: actions/checkout@v4
 
-    - name: Clean old builds
-      run: rm -rf CLI/dist/*.2.0.0.* 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
-    - name: Install Twine
-      run: pip install twine
+      - name: Install Twine
+        run: pip install twine
 
-    - name: Publish to PyPI
-      env:
-        TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-      run: twine upload CLI/dist/*
+      - name: Download Release Assets
+        uses: dwenegar/setup-release-assets@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload *
