@@ -15,6 +15,9 @@ jobs:
       with:
         python-version: '3.x'
 
+    - name: Clean old builds
+      run: rm -rf CLI/dist/*.2.0.0.* 
+
     - name: Install Twine
       run: pip install twine
 
@@ -22,5 +25,4 @@ jobs:
       env:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-      # This points Twine specifically to your CLI/dist folder
       run: twine upload CLI/dist/*
