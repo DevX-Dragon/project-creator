@@ -3,9 +3,8 @@ __pycache__/
 *.bak
 *.kicad_pcb-bak
 .DS_Store
-/dist/
+dist/
 /venv/
 /releases/
-/dist/
 /build/
 .env/
