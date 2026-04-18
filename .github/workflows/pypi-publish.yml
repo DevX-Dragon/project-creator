@@ -7,6 +7,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read 
     steps:
       - uses: actions/checkout@v4
 
@@ -18,13 +20,16 @@ jobs:
       - name: Install Twine
         run: pip install twine
 
-      - name: Download Release Assets
+      - name: Get Release Assets
         uses: dwenegar/setup-release-assets@v1.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List Files (Debug)
+        run: ls -R
 
       - name: Publish to PyPI
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: twine upload *
+        run: twine upload --skip-existing *.whl *.tar.gz
