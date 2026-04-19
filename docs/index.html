@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Creator | by DevX-Dragon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0d1117; color: #c9d1d9; }
+        .mono { font-family: 'Fira Code', monospace; }
+        .gradient-text {
+            background: linear-gradient(90deg, #58a6ff, #bc8cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .terminal-window {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="flex justify-between items-center p-6 max-w-5xl mx-auto">
+        <div class="text-xl font-bold mono gradient-text">/DevX-Dragon</div>
+        <div class="space-x-6">
+            <a href="https://github.com/DevX-Dragon/project-creator" class="hover:text-white transition">GitHub</a>
+            <a href="#install" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-semibold transition">Install</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto pt-16 px-6 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-white">
+            Stop Scaffolding. <br><span class="gradient-text">Start Coding.</span>
+        </h1>
+        <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+            A lightweight automation tool for 14-year-olds (and everyone else) who are tired of manual folder setups and Git initializations.
+        </p>
+
+        <div class="terminal-window overflow-hidden mb-16">
+            <div class="bg-[#21262d] p-3 flex items-center space-x-2 border-b border-[#30363d]">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-xs text-gray-500 ml-4 mono">bash — project-creator — 80x24</span>
+            </div>
+            <div class="p-4 bg-[#0d1117]">
+                <img src="https://cdn.hackclub.com/019da5a1-7c0d-70a4-afbe-afc7e1ca343e/render1776600157168.gif" alt="Terminal Demo" class="rounded w-full shadow-inner border border-gray-800">
+                <p class="text-sm text-gray-600 mt-2 mono italic">// One command to create, init, and push.</p>
+            </div>
+        </div>
+    </main>
+
+    <section class="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-8">
+        <div class="p-6 rounded-xl border border-[#30363d] bg-[#161b22]">
+            <div class="text-blue-400 mb-4 text-2xl">🚀</div>
+            <h3 class="text-lg font-bold text-white mb-2">Instant Setup</h3>
+            <p class="text-sm text-gray-400">Generates clean folder structures for hardware, web devlopment,etc</p>
+        </div>
+        <div class="p-6 rounded-xl border border-[#30363d] bg-[#161b22]">
+            <div class="text-purple-400 mb-4 text-2xl">📦</div>
+            <h3 class="text-lg font-bold text-white mb-2">Auto-Git</h3>
+            <p class="text-sm text-gray-400">Initializes Git and handles your first commit automatically. No more 'git init' loops.</p>
+        </div>
+        <div class="p-6 rounded-xl border border-[#30363d] bg-[#161b22]">
+            <div class="text-green-400 mb-4 text-2xl">☁️</div>
+            <h3 class="text-lg font-bold text-white mb-2">GitHub Sync</h3>
+            <p class="text-sm text-gray-400">Seamlessly pushes your new repository to GitHub so you can collaborate instantly.</p>
+        </div>
+    </section>
+
+    <section id="install" class="bg-[#161b22] border-y border-[#30363d] py-20 text-center">
+        <h2 class="text-3xl font-bold text-white mb-8">Get it now</h2>
+        <div class="max-w-xl mx-auto bg-black p-4 rounded-lg border border-[#30363d] flex items-center justify-between mono">
+            <span class="text-green-400 text-sm md:text-base">pip install prj-creator --upgrade</span>
+            <button onclick="navigator.clipboard.writeText('pip install prj-creator --upgrade')" class="text-gray-500 hover:text-white transition text-xs uppercase font-bold">Copy</button>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center px-6">
+        <p class="text-gray-500 mb-4">Built with coffee and late-night coding by Abbadh.</p>
+        <div class="flex justify-center space-x-4">
+            <a href="https://github.com/DevX-Dragon" class="text-blue-400 hover:underline font-semibold">GitHub</a>
+            <span class="text-gray-700">|</span>
+            <a href="mailto:tempzdragon@gmail.com" class="text-blue-400 hover:underline font-semibold">Contact</a>
+        </div>
+        <div class="mt-8">
+            <p class="text-xs text-gray-600 uppercase tracking-widest mb-4">Support a Young Dev</p>
+            <a href="https://buymeacoffee.com/abbadh" class="inline-block bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition">
+                ☕ Buy Me a Coffee
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
