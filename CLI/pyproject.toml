@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prj-creator"
-version = "2.1.2"
+version = "2.1.3"
 description = "A CLI tool for rapid project scaffolding"
 readme = "README.md"
 authors = [{ name = "DevX-Dragon" }]
