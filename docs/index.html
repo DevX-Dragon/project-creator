@@ -129,6 +129,85 @@
       line-height: 1.7;
     }
 
+    .showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.78);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(17, 24, 39, 0.9);
+      color: var(--muted);
+      font-size: 0.92rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-body {
+      padding: 18px;
+    }
+
+    .gif-stage {
+      padding: 16px;
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 40%),
+        rgba(2, 6, 23, 0.85);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .gif-stage img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .caption {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .install-list {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: #dbeafe;
+      line-height: 1.7;
+    }
+
+    .command {
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(2, 6, 23, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      overflow-x: auto;
+      white-space: nowrap;
+      font-family: Consolas, "Fira Code", "SFMono-Regular", monospace;
+      color: #86efac;
+    }
+
+    .note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
     .viewer {
       margin-top: 24px;
       border: 1px solid var(--border);
@@ -268,11 +347,85 @@
       color: #fca5a5;
     }
 
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(15, 23, 42, 0.8);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .feature .icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      color: #fff;
+      font-size: 1.05rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #94a3b8;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding: 34px 22px 12px;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    .footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 16px 0 22px;
+    }
+
+    .footer .coffee {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 14px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #fff;
+      color: #0f172a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .footer .coffee:hover {
+      text-decoration: none;
+      background: #e5e7eb;
+    }
+
     @media (max-width: 720px) {
       .topbar,
       .viewer-head {
         flex-direction: column;
         align-items: flex-start;
+      }
+
+      .showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
       }
 
       .hero,
@@ -304,6 +457,41 @@
       </p>
     </section>
 
+    <section class="showcase" aria-label="Install and demo">
+      <div class="panel">
+        <div class="panel-head">
+          <span>How to install</span>
+          <span>Quick start</span>
+        </div>
+        <div class="panel-body">
+          <ol class="install-list">
+            <li>Install the package with <code>pip install prj-creator</code>.</li>
+            <li>Run <code>prj-creator</code> in your terminal.</li>
+            <li>Pick a mode, choose your templates, and let it scaffold the project.</li>
+          </ol>
+          <div class="command">pip install prj-creator</div>
+          <p class="note">
+            The GIF on the right shows the install flow and the "one command to scaffold" idea in action.
+          </p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <span>Demo GIF</span>
+          <span>Install + run</span>
+        </div>
+        <div class="panel-body">
+          <div class="gif-stage">
+            <img src="https://cdn.hackclub.com/019da5a1-7c0d-70a4-afbe-afc7e1ca343e/render1776600157168.gif" alt="Project Creator install and usage demo">
+          </div>
+          <p class="caption">
+            If you want this to feel more like the original page, we can also re-add the feature cards and footer below.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="viewer" aria-label="Documentation viewer">
       <div class="viewer-head">
         <div class="dots" aria-hidden="true">
@@ -317,6 +505,35 @@
         <p class="status">Loading documentation...</p>
       </article>
     </section>
+
+    <section class="features" aria-label="Project highlights">
+      <div class="feature">
+        <div class="icon">🚀</div>
+        <h3>Instant Setup</h3>
+        <p>Generates clean folder structures for hardware, web development, Python, and more in one pass.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📦</div>
+        <h3>Auto-Git</h3>
+        <p>Initializes Git, creates the first commit, and prepares your repository without the usual setup loop.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">☁️</div>
+        <h3>Cloud Templates</h3>
+        <p>Pulls starter templates from GitHub so you can spin up new project types without rebuilding everything by hand.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Built with coffee and late-night coding by Abbadh.</p>
+      <div class="links">
+        <a href="https://github.com/DevX-Dragon" target="_blank" rel="noreferrer">GitHub</a>
+        <span aria-hidden="true">|</span>
+        <a href="mailto:tempzdragon@gmail.com">Contact</a>
+      </div>
+      <p style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 10px;">Support a Young Dev</p>
+      <a class="coffee" href="https://buymeacoffee.com/abbadh" target="_blank" rel="noreferrer">☕ Buy Me a Coffee</a>
+    </footer>
   </div>
 
   <script>
