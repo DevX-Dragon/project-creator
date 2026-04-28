@@ -1,20 +1,91 @@
 # Project Creator
-I built Project Architect because I was tired of manually creating the same folder structures, initializing git, and setting up virtual environments every time I started a new engineering project. This tool automates the "boring stuff" so you can get straight to the actual design and code.
 
-## Why?
-When you are going to be switching between KiCad, Firmware, and Web Development having a proper structured folder is a pain. This app ensures that each and every project is consistent numbered hierarchy without you worrying about it.
+`prj-creator` is a Python CLI tool for scaffolding numbered project folders with optional templates for web, firmware, Python, docs, tests, and Git setup.
 
-## What it does?
-- **Project Numbering**: It looks at your current directory and automatically picks the next available number.
+## What It Does
 
-- **Selectable Folder Templates**: Give options to choose what folders have to be created according to user input.
+- Creates a new project folder using the next available number, for example `01.my-project`, `02.another-project`
+- Lets you choose a setup style from the interactive wizard
+- Generates common starter files such as `index.html`, `style.css`, `main.js`, `requirements.txt`, `.env.example`, and `blueprint.json`
+- Can create a Python virtual environment
+- Can initialize Git, set `main` as the branch, commit the project, and push to one or more remotes
+- Can download template folders from a GitHub repository
+- Bundled starter templates include `basic-web`, `npm-package`, and `python-pypi`
 
-- **Base Files**: Creates the basic `.kicad_pro` and `.kicad_sch` for KiCAD and basic `index.html`,`script.js` and `style.css` for web development.
+## Install
 
-- **Git Automation**: It handles the git init, creates the main branch, sets a remote orgin (orgin or an upstream based on user input), and performs your initial commit and push in one click.
+Install from Python packaging:
 
-## Security Concerns
-- The .exe file is flagged my Microsoft Anti-virus. You can either use the python version or add the exe as a exclusion.
-- This project does not have access to any of your git credentials. This script only runs the git commands for you via the terminal.
+```bash
+pip install prj-creator
+```
 
-###### Fully built by **@DevX-Dragon**. A 14 year old developer from Sri Lanka 🇱🇰 
+If you want to work from source, install the dependencies listed in `src/pyproject.toml`:
+
+```bash
+pip install requests InquirerPy colorama rich GitPython
+```
+
+## Run
+
+```bash
+prj-creator
+```
+
+## CLI Options
+
+The tool supports one command-line option for loading an external template source:
+
+```bash
+prj-creator --command source:https://github.com/user/repo
+```
+
+- `-c`, `--command`: load templates from an external GitHub repository in `source:https://...` form
+
+## Interactive Modes
+
+When you run the CLI normally, you will be asked to choose one of these modes:
+
+- `Manual Setup`: choose features like web, API, firmware, docs, tests, and venv
+- `Load Templates`: download a template from the default GitHub template repository
+- `Empty Repository`: create a minimal project folder with a starter `README.md`
+
+## Generated Structure
+
+Typical output looks like this:
+
+```text
+01.my-project/
+  web/
+  api/
+  firmware/
+  docs/
+  tests/
+  venv/
+  .env.example
+  blueprint.json
+  .gitignore
+```
+
+Not every folder is created every time. The final layout depends on the mode and toggles you select.
+
+## Requirements
+
+- Python
+- `git`
+- `pip`
+- Internet access for cloud template downloads and remote Git pushes
+
+## Notes
+
+- Project folders are numbered by scanning the current directory for existing folders that start with a number and a dot.
+- Git push only works if the remote is reachable and your credentials are already configured.
+- The tool is designed for local project scaffolding, not for managing production deployments.
+
+## Documentation
+
+For the full software documentation, see [`docs/Documentation.md`](docs/Documentation.md).
+
+## Contributing
+
+If you want to add or improve templates, read [`CONTRIBUTING.md`](CONTRIBUTING.md) first.
