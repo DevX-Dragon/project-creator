@@ -1,0 +1,13 @@
+{
+  "name": "your-package-name",
+  "version": "1.0.0",
+  "description": "A starter npm package created by Project Creator",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
