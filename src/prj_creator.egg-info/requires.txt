@@ -1,0 +1,5 @@
+requests
+InquirerPy
+colorama
+rich
+GitPython

@@ -6,7 +6,7 @@
 
 - Creates a new project folder using the next available number, for example `01.my-project`, `02.another-project`
 - Lets you choose a setup style from the interactive wizard
-- Generates common starter files such as `index.html`, `style.css`, `main.js`, `requirements.txt`, `.env.example`, and `blueprint.json`
+- Generates common starter files such as `index.html`, `style.css`, `main.js`, `.env.example`, and `blueprint.json`
 - Can create a Python virtual environment
 - Can initialize Git, set `main` as the branch, commit the project, and push to one or more remotes
 - Can download template folders from a GitHub repository

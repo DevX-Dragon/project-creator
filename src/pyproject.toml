@@ -4,11 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prj-creator"
-version = "2.1.3"
+version = "3.0.1"
 description = "A CLI tool for rapid project scaffolding"
 readme = "README.md"
 authors = [{ name = "DevX-Dragon" }]
-dependencies = []
+dependencies = [
+        "requests",
+        "InquirerPy",
+        "colorama",
+        "rich",
+        "GitPython",
+]
 
 [project.urls]
 Homepage = "https://github.com/DevX-Dragon/project-creator"
