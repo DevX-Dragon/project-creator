@@ -13,7 +13,7 @@ The main entry point is [`src/prj_creator/main.py`](../src/prj_creator/main.py),
 The package is defined in [`src/pyproject.toml`](../src/pyproject.toml).
 
 - Package name: `prj-creator`
-- Current version: `2.1.3`
+- Current version: `3.0.1`
 - Console script: `prj-creator = prj_creator.main:run_wizard`
 
 ### Runtime dependencies
@@ -231,7 +231,6 @@ Depending on the selected mode and toggles, the generated root folder may contai
 - `.env.example`
 - `blueprint.json`
 - `README.md`
-- `requirements.txt`
 - `venv/`
 
 ### Web output
