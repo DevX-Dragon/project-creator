@@ -27,7 +27,7 @@ jobs:
           rm -rf dist
           mkdir -p dist/assets
           cp -R website/. dist/
-          cp docs/documentation.md dist/assets/documentation.md
+          cp docs/Documentation.md dist/assets/documentation.md
           cp CONTRIBUTING.md dist/assets/contributing.md
           touch dist/.nojekyll
 

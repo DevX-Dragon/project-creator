@@ -88,7 +88,7 @@ The full software guide now lives on the documentation site:
 
 [`Project Creator Documentation`](https://devx-dragon.github.io/project-creator/docs/)
 
-If you are browsing the repo locally, the source markdown is still in [`docs/documentation.md`](docs/documentation.md).
+If you are browsing the repo locally, the source markdown is still in [`docs/Documentation.md`](docs/Documentation.md).
 
 ## Contributing
 
