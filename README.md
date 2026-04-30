@@ -84,8 +84,16 @@ Not every folder is created every time. The final layout depends on the mode and
 
 ## Documentation
 
-For the full software documentation, see [`docs/Documentation.md`](docs/Documentation.md).
+The full software guide now lives on the documentation site:
+
+[`Project Creator Documentation`](https://devx-dragon.github.io/project-creator/docs/)
+
+If you are browsing the repo locally, the source markdown is still in [`docs/documentation.md`](docs/documentation.md).
 
 ## Contributing
 
-If you want to add or improve templates, read [`CONTRIBUTING.md`](CONTRIBUTING.md) first.
+Template contribution guidance now lives on the contribution site:
+
+[`Project Creator Contributing`](https://devx-dragon.github.io/project-creator/contributing/)
+
+If you are browsing the repo locally, the published markdown copy is in [`docs/contributing.md`](docs/contributing.md), and the root guide stays in [`CONTRIBUTING.md`](CONTRIBUTING.md).

@@ -251,4 +251,75 @@ When `api` is enabled:
 
 When `firm` is enabled:
 
-- 
+- `firmware/<project-name>.ino`
+
+### Docs and tests
+
+When selected:
+
+- `docs/`
+- `tests/`
+
+## 11. Error Handling
+
+The CLI is designed to keep going where possible, but there are a few important failure points:
+
+- Missing required system tools cause an immediate exit.
+- Git push can fail if the remote is empty, unavailable, or authentication is not configured.
+- Cloud template downloads can fail if the GitHub API is unavailable or the repository layout does not match expectations.
+- External source mode depends on the repository exposing a `templates/` directory.
+
+Most runtime errors are caught and printed to the console instead of crashing with a full traceback.
+
+## 12. Implementation Notes
+
+The key functions in [`src/prj_creator/main.py`](../src/prj_creator/main.py) are:
+
+- `check_system_health()`
+  - Verifies `git`, `python`, and `pip` are available
+
+- `fix_terminal()`
+  - Applies Windows console fixes for UTF-8 and ANSI color output
+
+- `get_next_num()`
+  - Scans the current directory and computes the next folder number
+
+- `download_remote_folder()`
+  - Recursively downloads a GitHub repository folder
+
+- `handle_git_logic()`
+  - Writes `.gitignore`, initializes Git, commits, and pushes
+
+- `generate_env_example()`
+  - Writes `.env.example` based on selected features
+
+- `run_wizard()`
+  - Drives the interactive CLI flow
+
+- `handle_external_source()`
+  - Loads a template from a `source:` repository URL
+
+## 13. Behavior Summary
+
+At a high level, Project Creator does three things:
+
+1. Creates a numbered project folder.
+2. Scaffolds files and directories based on your chosen mode.
+3. Optionally turns the folder into a Git repository and pushes it.
+
+That makes it suitable for quickly starting a new repo without repeating the same setup work every time.
+
+## 14. Current Limitations
+
+The current implementation has a few practical limitations worth knowing:
+
+- The project name is converted by replacing spaces with hyphens only. It does not perform deep sanitization.
+- `handle_external_source()` expects a `source:` string in a very specific format.
+- Cloud template mode assumes the GitHub repository structure matches the hardcoded `templates/` layout.
+- The code checks for `python` on `PATH`, which is fine on many systems but can vary by platform installation.
+
+These are not necessarily bugs, but they are important implementation details for users and contributors.
+
+## 15. License
+
+See [`LICENSE`](../LICENSE).
