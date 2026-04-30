@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Creator Docs</title>
+  <link rel="stylesheet" href="../terminal.css">
+  <style>
+    :root { --bg:#04111d; --bg-2:#0c1730; --panel:rgba(10,18,36,.84); --border:rgba(148,163,184,.16); --text:#eff6ff; --muted:#a6b6cb; --accent:#7dd3fc; --shadow:0 24px 80px rgba(0,0,0,.34); }
+    *{box-sizing:border-box} body{margin:0;color:var(--text);background:radial-gradient(circle at 15% 15%,rgba(125,211,252,.18),transparent 22%),radial-gradient(circle at 88% 0%,rgba(192,132,252,.16),transparent 24%),linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);font-family:"Trebuchet MS","Segoe UI",sans-serif;min-height:100vh}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1100px,calc(100% - 28px));margin:0 auto;padding:20px 0 54px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px;border-radius:20px;border:1px solid var(--border);background:rgba(8,13,28,.74);backdrop-filter:blur(14px);box-shadow:var(--shadow)}.brand{display:flex;flex-direction:column;gap:4px}.brand strong{font-size:1.02rem;letter-spacing:.03em}.brand span{color:var(--muted);font-size:.92rem}.nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}.pill{border:1px solid var(--border);border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.03);transition:transform 180ms ease,border-color 180ms ease}.pill:hover{transform:translateY(-1px);border-color:rgba(125,211,252,.34)}.hero{margin-top:22px;padding:28px;border-radius:28px;border:1px solid var(--border);background:linear-gradient(135deg,rgba(125,211,252,.08),rgba(192,132,252,.08)),var(--panel);box-shadow:var(--shadow)}.hero h1{margin:0;font-size:clamp(2rem,4vw,3.5rem);line-height:1;letter-spacing:-.04em}.hero p{margin:14px 0 0;max-width:72ch;color:#d5e0ee;line-height:1.8;font-size:1rem}.panel{margin-top:18px;border:1px solid var(--border);border-radius:24px;overflow:hidden;background:rgba(10,16,31,.82);box-shadow:var(--shadow)}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--border);background:rgba(11,18,38,.94);color:var(--muted);font-size:.92rem}.panel-body{padding:18px}.note-card{padding:18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--border);margin-bottom:14px}.note-card h2{margin:0 0 8px;font-size:1.03rem}.note-card p{margin:0;color:var(--muted);line-height:1.7;font-size:.94rem}.command{padding:14px 16px;border-radius:16px;background:#020617;border:1px solid rgba(148,163,184,.18);color:#99f6e4;font-family:Consolas,"SFMono-Regular","Cascadia Mono",monospace;overflow-x:auto;white-space:nowrap;margin-top:10px}.viewer{margin-top:18px;border:1px solid var(--border);border-radius:24px;overflow:hidden;background:rgba(3,8,20,.72);box-shadow:var(--shadow)}.viewer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--border);background:rgba(11,18,38,.94);color:var(--muted);font-size:.92rem}.dots{display:flex;gap:8px}.dot{width:12px;height:12px;border-radius:999px}.red{background:#f87171}.yellow{background:#facc15}.green{background:#4ade80}#doc{padding:26px;line-height:1.75;color:var(--text)}#doc h1,#doc h2,#doc h3,#doc h4{line-height:1.2;margin:1.5em 0 .6em}#doc h1:first-child{margin-top:0}#doc p,#doc ul,#doc ol,#doc pre,#doc blockquote{margin:0 0 1em}#doc ul,#doc ol{padding-left:1.3rem}#doc li{margin:.35em 0}#doc code{padding:.18rem .38rem;border-radius:6px;background:rgba(15,23,42,.92);border:1px solid rgba(148,163,184,.16);font-family:Consolas,"SFMono-Regular","Cascadia Mono",monospace;font-size:.95em}#doc pre{overflow-x:auto;padding:16px;border-radius:16px;background:#020617;border:1px solid rgba(148,163,184,.18)}#doc pre code{padding:0;border:0;background:transparent;display:block;white-space:pre}#doc blockquote{padding:.9rem 1rem;border-left:4px solid var(--accent);background:rgba(125,211,252,.08);border-radius:0 12px 12px 0;color:#dbeafe}#doc hr{border:0;border-top:1px solid rgba(148,163,184,.16);margin:2rem 0}.status{color:var(--muted);font-style:italic}.error{color:#fca5a5}.footer{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 4px 4px;color:var(--muted)}.footer a{color:#d8e9ff}@media(max-width:720px){.topbar{flex-direction:column;align-items:flex-start}.nav{justify-content:flex-start}.hero,#doc{padding:18px}}
+  </style>
+  <script src="../terminal.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <strong>Project Creator Docs</strong>
+        <span>Setup, usage, and reference</span>
+      </div>
+      <div class="nav">
+        <a class="pill" href="../">Home</a>
+        <a class="pill" href="../contributing/">Contributing</a>
+        <a class="pill" href="https://github.com/DevX-Dragon/project-creator" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </header>
+    <section class="hero">
+      <h1>Documentation</h1>
+      <p>Install Project Creator, run the command, and start building. This guide covers setup, usage, templates, and the project structure it generates.</p>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><span>Getting started</span><span>Quick install</span></div>
+      <div class="panel-body">
+        <div class="note-card">
+          <h2>Install and run</h2>
+          <p>Use the package, launch the wizard, and choose the project shape you want.</p>
+          <div class="command">pip install prj-creator</div>
+          <div class="command" style="margin-top: 10px;">prj-creator</div>
+        </div>
+      </div>
+    </section>
+    <section class="viewer" aria-label="Documentation viewer">
+      <div class="viewer-head"><div class="dots" aria-hidden="true"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><div>Documentation</div></div>
+      <article id="doc"><p class="status">Loading documentation...</p></article>
+    </section>
+    <footer class="footer"><div>Project Creator docs and quick start guides.</div><div><a href="../">Home</a><span aria-hidden="true"> | </span><a href="../contributing/">Contributing</a></div></footer>
+  </div>
+  <script>
+    const docEl = document.getElementById("doc");
+    function escapeHtml(text) { return text.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"); }
+    function inlineFormat(text) { return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>').replace(/`([^`]+)`/g,"<code>$1</code>"); }
+    function renderMarkdown(md) {
+      const lines = md.replace(/\r\n/g,"\n").split("\n"); const out=[]; let inCode=false, codeBuffer=[], inUl=false, inOl=false, paragraph=[];
+      const flushParagraph=()=>{ if(!paragraph.length) return; out.push(`<p>${inlineFormat(escapeHtml(paragraph.join(" ").trim()))}</p>`); paragraph=[]; };
+      const closeLists=()=>{ if(inUl){ out.push("</ul>"); inUl=false; } if(inOl){ out.push("</ol>"); inOl=false; } };
+      for (const rawLine of lines) {
+        const line = rawLine.trimEnd(), trimmed = line.trim();
+        if (trimmed.startsWith("```")) { if (inCode) { out.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`); codeBuffer=[]; inCode=false; } else { flushParagraph(); closeLists(); inCode=true; } continue; }
+        if (inCode) { codeBuffer.push(rawLine); continue; }
+        if (!trimmed) { flushParagraph(); closeLists(); continue; }
+        const heading = trimmed.match(/^(#{1,4})\s+(.*)$/);
+        if (heading) { flushParagraph(); closeLists(); out.push(`<h${heading[1].length}>${inlineFormat(escapeHtml(heading[2]))}</h${heading[1].length}>`); continue; }
+        if (trimmed === "---") { flushParagraph(); closeLists(); out.push("<hr>"); continue; }
+        if (/^-\s+/.test(trimmed)) { flushParagraph(); if (inOl) { out.push("</ol>"); inOl=false; } if (!inUl) { out.push("<ul>"); inUl=true; } out.push(`<li>${inlineFormat(escapeHtml(trimmed.slice(2)))}</li>`); continue; }
+        if (/^\d+\.\s+/.test(trimmed)) { flushParagraph(); if (inUl) { out.push("</ul>"); inUl=false; } if (!inOl) { out.push("<ol>"); inOl=true; } out.push(`<li>${inlineFormat(escapeHtml(trimmed.replace(/^\d+\.\s+/, "")))}</li>`); continue; }
+        if (/^>\s+/.test(trimmed)) { flushParagraph(); closeLists(); out.push(`<blockquote>${inlineFormat(escapeHtml(trimmed.slice(2)))}</blockquote>`); continue; }
+        paragraph.push(trimmed);
+      }
+      flushParagraph(); closeLists(); if (inCode) out.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
+      return out.join("\n");
+    }
+    fetch("../assets/documentation.md",{cache:"no-store"}).then(r=>{ if(!r.ok) throw new Error(`Failed to load documentation.md (${r.status})`); return r.text(); }).then(md=>{ docEl.innerHTML = renderMarkdown(md); }).catch(err=>{ docEl.innerHTML = `<p class="error">Unable to load documentation.md: ${escapeHtml(err.message)}</p>`; });
+  </script>
+</body>
+</html>
